@@ -21,6 +21,7 @@ import com.whysoezzy.bia.ui.components.ChatScreen
 import com.whysoezzy.bia.ui.components.GraphicsScreen
 import com.whysoezzy.bia.ui.components.ProfileScreen
 import com.whysoezzy.bia.ui.components.TaskScreen
+import com.whysoezzy.bia_new.ui.components.SplashScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -61,10 +62,14 @@ fun AppNavigation() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screens.TaskScreen.name,
+            startDestination = Screens.SplashScreen.name,
             modifier = Modifier
                 .padding(paddingValues)
         ) {
+            composable(route = Screens.SplashScreen.name){
+                SplashScreen(navController = navController)
+            }
+            
             composable(route = Screens.TaskScreen.name) {
                 TaskScreen()
             }
